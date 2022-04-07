@@ -8,7 +8,7 @@ from torchvision.transforms import Lambda, ToTensor
 
 
 def main():
-    ds = datasets.FashionMNIST(
+    ds_tensor = datasets.FashionMNIST(
         root="data",
         train=True,
         download=True,
@@ -20,7 +20,18 @@ def main():
         ),
     )
 
-    print(type(ds.data))
+    ds_PIL = datasets.FashionMNIST(
+        root="data",
+        train=True,
+        download=True,
+        transform=None,
+        target_transform=None,
+    )
+
+    print("ds_tensor:")
+    print((ds_tensor[0]))
+    print("ds_PIL")
+    print((ds_PIL[0]))
 
 
 if __name__ == "__main__":
